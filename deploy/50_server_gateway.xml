@@ -1,0 +1,15 @@
+<server class="org.jpos.q2.iso.QServer" logger="Q2" name="gateway_server">
+    <attr name="port" type="java.lang.Integer">9090</attr>
+    <attr name="maxSessions" type="java.lang.Integer">50</attr>
+    <attr name="minSessions" type="java.lang.Integer">10</attr>
+    <channel class="org.jpos.iso.channel.ASCIIChannel"
+             packager="org.jpos.iso.packager.ISO93APackager"
+             header="6000000000">
+        <property name="timeout" value="300000"/>
+    </channel>
+    <request-listener class="com.example.jposgateway.listeners.GatewayListener" logger="Q2" name="gateway_listener">
+        <property name="space" value="transient:default" />
+        <property name="queue" value="TXNQueue" />
+        <property name="spaceTimeout" value="60000" />
+    </request-listener>
+</server>

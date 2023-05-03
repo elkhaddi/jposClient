@@ -1,0 +1,11 @@
+<channel-adaptor name='gateway-channel' class="org.jpos.q2.iso.ChannelAdaptor" logger="Q2">
+    <channel class="org.jpos.iso.channel.ASCIIChannel"
+             packager="org.jpos.iso.packager.ISO87APackager">
+        <property name="host" value="localhost" />
+        <property name="port" value="8090" />
+        <property name="timeout" value="300000"/>
+    </channel>
+    <in>gateway-send</in>
+    <out>gateway-receive</out>
+    <reconnect-delay>10000</reconnect-delay>
+</channel-adaptor>

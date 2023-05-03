@@ -1,0 +1,8 @@
+<txnmgr name="gateway-TM" logger="Q2" class="org.jpos.transaction.TransactionManager">
+    <property name="space" value="transient:default" />
+    <property name="queue" value="TXNQueue" />
+    <property name="sessions" value="5" />
+    <property name="debug" value="true" />
+    <participant class="org.jpos.transaction.participant.QueryHost" logger="Q2"/>
+    <participant class="org.jpos.transaction.participant.SendResponse" logger="Q2"/>
+</txnmgr>
